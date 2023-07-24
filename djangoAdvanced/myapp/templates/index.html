@@ -5,104 +5,30 @@
     <title>Home</title>
     {% tailwind_css %}
 </head>
-<body class="bg-red-800 h-[50vh]">
-    <nav>
-        <div className="flex justify-between items-center p-4 shadow-sm absolute w-full">
-          <div className="flex items-center space-x-4">
-            <Image src="/logo_mine.png" width={40} height={40} />
-            <h1 className="text-2xl font-bold">Login-Register</h1>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="/login" className="text-lg font-semibold hover:text-white hover:underline-offset-1">
-              Home
-            </a>
-            <a href="/register" className="text-lg font-semibold hover:text-white hover:underline-offset-1">
-              About
-            </a>
-            <a href="/services" className="text-lg font-semibold p-2 rounded-lg hover:bg-white hover:text-black hover:shadow-md hover:transition-shadow hover:cursor-pointer outline-none">
-              Services
-            </a>
-            <a href="/contact" className="text-lg font-semibold hover:text-white hover:underline-offset-1">
-              Contact
-            </a>
-            <a href="/register" className="text-lg font-semibold">
-              Register
-            </a>
-          </div>
+<body class="bg-gray-200 h-[100vh]">
+    <div id='navbar' class="shadow-md h-[50px] p-2 mx-auto w-full flex flex-row justify-between bg-gradient-to-r from-green-300 to-transparent">
+        <div class="opacity-0">
+            <img src="{% static '/logo.png' %}" class="h-[50px] w-[50px]">
         </div>
-      </nav>
-      <div className="flex justify-center items-center h-full relative">
-        <div className="bg-black bg-opacity-60 h-[400px auto] w-[500px] p-8 rounded-lg shadow-lg">
-          
-          <form onSubmit={handleEmailSignIn}>
-            <div className="space-y-4">
-              <label htmlFor="email" className="block text-sm font-medium text-white">
-                Email address
-              </label>
-              <div className="mt-1">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"                
-                />
-              </div>
-              <div className="mt-1 relative">
-              <label htmlFor="email" className="block text-sm font-medium text-white">
-                Password
-              </label>
-                <div className='flex items-center'>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  
-                />
-                <Image
-                  src="/eye-off.svg"
-                  alt="Background Image"
-                  width={20}
-                  height={20}
-                  className='absolute right-2 bottom-2 hover:cursor-pointer'
-                  onClick={toggle}
-                 
-                />
-                </div>
-              </div>
-              <div className='mt-2'>
-                <input type='checkbox' className=''/>
-                <span className='m-2 p-2 text-lg space-x-2 text-white'>Remember Me</span>
-              </div>
-            </div>
-            <div className='m-2 p-3 mx-auto items-center justify-center shadow-xlg flex'>
-              <button type='submit' className='bg-gray-50 text-xl p-1 rounded-sm font-serif font-extrabold hover:bg-gray-400 hover:delay-75 hover:shadow-lg'>Login</button>
-              {/* <a href='login' className='text-white text-md hover:underline m-2 '>Sign In</a> */}
-              <Link href={'/register'} className='text-white text-md hover:underline m-2 '>Sign Up</Link>
-            </div>
-            <div className='flex flex-row mx-auto items-center justify-center'>
-              <div className='items-start m-1 p-2'>
-                <button type='submit' onClick={handleGoogleSignIn} className='bg-gray-300 p-2 rounded-md hover:bg-gray-50 flex justify-between'>
-                <Image
-                  src="/google.png"
-                  alt="Background Image"
-                  width={20}
-                  height={20}
-                  className='hover:cursor-pointer mr-1'
-                />
-                  Sign In With Google</button>
-              </div>
-              <div className='items-end m-1 p-2'>
-                <button className='bg-gray-300 p-2 rounded-md hover:bg-gray-50 flex space-x-2'>
-                <Image
-                  src="/github.png"
-                  alt="Background Image"
-                  width={20}
-                  height={20}
-                  className='hover:cursor-pointer mr-1'
-                />
-                  Sign In With Github</button>
-              </div>
-            </div>
-          </form>
+        <div>
+            <h2 class="items-center justify-center flex mx-auto font-serif font-extrabold text-2xl">Welcome to the Theatre of Dreams</h2>
+        </div>
+        <div class="flex flex-row justify-end my-auto items-center space-x-3 text-xl font-serif font-extrabold">
+            <a href="#" class="hover:underline-offset-1 hover:text-green-500">Home</a>
+            <a href="#" class="hover:underline-offset-1 hover:text-green-500">About</a>
+            <a href="#" class="hover:underline-offset-1 hover:text-green-500">Services</a>
+            <a href="#" class="hover:underline-offset-1 hover:text-green-500">Contact</a>
+        </div>
+    </div>
+    <div id="form" class="border-1 w-[400px] h-[500px] mx-auto justify-center items-center rounded-lg mt-10 p-2 ">
+        <div class="bg-transparent shadow-md m-2 p-5">
+            <h2 class="text-2xl font-serif font-extrabold text-center">Login</h2>
+            <!-- Login form -->
+            <form class="flex flex-col justify-center items-center space-y-2">
+                <input type="text" name="username" placeholder="Username" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
+                <input type="password" name="password" placeholder="Password" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
+                <input type="submit" name="submit" value="Login" class=" outline-none rounded-md w-[300px] h-[50px] p-2 bg-green-500 hover:bg-green-600 text-white font-bold">
+            </form>
         </div>
     </div>
 </body>
