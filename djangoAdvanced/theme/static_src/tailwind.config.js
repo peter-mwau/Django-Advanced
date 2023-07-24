@@ -45,6 +45,12 @@ module.exports = {
     theme: {
         extend: {},
     },
+    screen: {
+        sm: '360px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1542px',
+    }
     plugins: [
         /**
          * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
