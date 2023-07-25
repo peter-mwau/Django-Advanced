@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Register</title>
     {% tailwind_css %}
 </head>
 <body class="bg-gray-200 h-[100vh]">
@@ -27,14 +27,27 @@
             <form class="flex flex-col justify-center items-center space-y-2">
                 <input type="email" name="email" placeholder="Email" class="outline-none rounded-md w-[300px] h-[50px] p-2">
                 <input type="text" name="username" placeholder="Username" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
-                <input type="password" name="password" placeholder="Password" class="outline-none rounded-md w-[300px] h-[50px] p-2">
+                <input type="password" id="password" name="password" placeholder="Password" class="outline-none rounded-md w-[300px] h-[50px] p-2">
                 <input type="password" name="confirmpassword" placeholder="Confirm Password" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
+                {% comment %} {% load static %} {% endcomment %}
+                <img src="{% static '/eye.png'%}" class="hover:cursor-pointer" id="toggle"/>
                 <div class="flex flex-row mx-auto items-center justify-center space-x-2">
                     <input type="submit" name="submit" value="Register" class=" outline-none rounded-md w-auto h-auto p-1 bg-green-500 hover:bg-green-600 text-white font-bold">
-                <a href="#" class="text-sm font-serif font-extralight hover:underline hover:text-blue-500">Sign In?</a>
+                <a href="/" class="text-sm font-serif font-extralight hover:underline hover:text-blue-500">Sign In?</a>
                 </div>
             </form>
         </div>
     </div>
 </body>
+<script>
+    const toggle = document.getElementById('toggle');
+    const password = document.getElementById('password');
+    toggle.addEventListener('click', function(){
+        if(password.type === 'password'){
+            password.type = 'text';
+        }else{
+            password.type = 'password';
+        }
+    })
+</script>
 </html>
