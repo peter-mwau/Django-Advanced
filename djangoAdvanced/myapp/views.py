@@ -1,14 +1,36 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
-import json
-# from django.contrib.auth.models import authenticate
-from django.contrib.auth import login, logout
+from django.contrib.auth import authenticate, login,login, logout
 from .models import User_Detail
 
 # Create your views here.
 
 def Home(request):
     return render(request, "index.html")
+
+def user_login(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("home")  # Replace "home" with the name of your homepage URL
+        else:
+            data = {
+                "error": "Invalid username or password!"
+            }
+            return render(request, "index.html", data)
+    else:
+        data = {
+            "error": "Invalid request method!"
+        }
+        return render(request, "index.html", data)
+    
+def user_logout(request):
+    logout(request)
+    return redirect("login")  # Replace "login" with the name of your login URL
 
 def Register(request):
     if request.method == "POST":
