@@ -6,15 +6,16 @@ from .models import User_Detail
 # Create your views here.
 
 def Home(request):
-    return render(request, "index.html")
+    return render(request, "homepage.html")
 
 def user_login(request):
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
+        # user = User_Detail.objects.all()
         user = authenticate(username=username, password=password)
 
-        if user is not None:
+        if user is not None: #
             login(request, user)
             return redirect("home")  # Replace "home" with the name of your homepage URL
         else:
@@ -27,6 +28,8 @@ def user_login(request):
             "error": "Invalid request method!"
         }
         return render(request, "index.html", data)
+ 
+    
     
 def user_logout(request):
     logout(request)
