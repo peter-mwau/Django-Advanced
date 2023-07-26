@@ -1,8 +1,9 @@
 {% load static tailwind_tags %}
+{% block content%}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>Login</title>
     {% tailwind_css %}
 </head>
 <body class="bg-gray-200 h-[100vh]">
@@ -23,16 +24,21 @@
     <div id="form" class="border-1 w-[400px] h-[500px] mx-auto justify-center items-center rounded-lg mt-10 p-2 ">
         <div class="bg-transparent shadow-md m-2 p-5">
             <h2 class="text-2xl font-serif font-extrabold text-center m-2">Login</h2>
+            {% if error %}
+                <p class="m-2 mx-auto items-center justfy-center flex text-red-400">{{ error }}</p>
+            {% endif %}
             <!-- Login form -->
-            <form class="flex flex-col justify-center items-center space-y-2">
+            <form class="flex flex-col justify-center items-center space-y-2" method="post" action={% url 'login'%}>
+                {% csrf_token %}
                 <input type="text" name="username" placeholder="Username" class="outline-none rounded-md w-[300px] h-[50px] p-2">
                 <input type="password" name="password" placeholder="Password" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
                 <div class="flex flex-row mx-auto items-center justify-center space-x-2">
-                    <input type="submit" name="submit" value="Login" class=" outline-none rounded-md w-auto h-auto p-1 bg-green-500 hover:bg-green-600 text-white font-bold">
+                    <input type="submit" name="submit" value="Login" class="outline-none rounded-md w-auto h-auto p-1 bg-green-500 hover:bg-green-600 text-white font-bold">
                 <a href="register" class="text-sm font-serif font-extralight hover:underline hover:text-blue-500">Sign Up?</a>
                 </div>
             </form>
         </div>
     </div>
 </body>
+{% endblock %}
 </html>
