@@ -3,7 +3,7 @@ import requests
 import json
 # from django.contrib.auth.models import authenticate
 from django.contrib.auth import login, logout
-from .models import User
+from .models import User_Detail
 
 # Create your views here.
 
@@ -15,13 +15,13 @@ def Register(request):
         username = request.POST["username"]
         password = request.POST["password"]
         email = request.POST["email"]
-        user_exists=User.objects.filter(username__iexact=username).first()
+        user_exists=User_Detail.objects.filter(username__iexact=username).first()
         if user_exists:
             data = {
                 "error": "Username already exists!"
             }
         else:
-            user = User.objects.create(username=username, password=password, email=email)
+            user = User_Detail.objects.create(username=username, password=password, email=email)
             user.save()
             data = {
                 "success": "User created successfully!"
