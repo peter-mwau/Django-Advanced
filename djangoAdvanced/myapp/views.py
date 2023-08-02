@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 import requests
 from django.contrib.auth import authenticate, login,login, logout
-from .models import User_Detail
+# from .models import User_Detail
+from django.contrib.auth.models import User
+from myapp.models import CustomUser
+
 
 # Create your views here.
 
@@ -9,25 +12,31 @@ def Home(request):
     return render(request, "homepage.html")
 
 def user_login(request):
+    print("Reached the user_login view.")
     if request.method == "POST":
+        print("Received POST request.")
         username = request.POST["username"]
         password = request.POST["password"]
         # user = User_Detail.objects.all()
         user = authenticate(username=username, password=password)
 
         if user is not None: #
+            print("Authentication successful. User:", user)
             login(request, user)
             return redirect("home")  # Replace "home" with the name of your homepage URL
         else:
+            print("Authentication failed.")
             data = {
                 "error": "Invalid username or password!"
             }
             return render(request, "index.html", data)
     else:
+        print("Received GET request.")
         data = {
             "error": "Invalid request method!"
         }
         return render(request, "index.html", data)
+    
  
     
     
@@ -40,13 +49,13 @@ def Register(request):
         username = request.POST["username"]
         password = request.POST["password"]
         email = request.POST["email"]
-        user_exists=User_Detail.objects.filter(username__iexact=username).first()
+        user_exists=CustomUser.objects.filter(username__iexact=username).first()
         if user_exists:
             data = {
                 "error": "Username already exists!"
             }
         else:
-            user = User_Detail.objects.create(username=username, password=password, email=email)
+            user = CustomUser.objects.create_user(username=username, password=password, email=email)
             user.save()
             data = {
                 "success": "User created successfully!"

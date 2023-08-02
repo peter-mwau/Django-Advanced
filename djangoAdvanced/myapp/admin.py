@@ -1,8 +1,8 @@
 from django.contrib import admin
-from . models import User_Detail
+from . models import CustomUser
 
-class User_DetailAdmin(admin.ModelAdmin):
+class CustomUserAdmin(admin.ModelAdmin):
     list_display = ('username', 'password', 'email')
 
 
-admin.site.register(User_Detail, User_DetailAdmin)
+admin.site.register(CustomUser, CustomUserAdmin)

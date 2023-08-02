@@ -43,10 +43,25 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     # "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 TAILWIND_APP_NAME = 'theme'
+
+# Set the login URL
+LOGIN_URL = 'login'  
+
+# Set the login redirect URL after successful login
+LOGIN_REDIRECT_URL = 'home'
+
+# Specify the default password hasher
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+]
+
+# Set the custom user model
+AUTH_USER_MODEL = 'myapp.CustomUser'
 
 ROOT_URLCONF = 'djangoAdvanced.urls'
 
