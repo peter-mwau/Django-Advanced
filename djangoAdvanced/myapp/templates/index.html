@@ -18,6 +18,7 @@
                 {% csrf_token %}
                 <input type="text" name="username" placeholder="Username" class="outline-none rounded-md w-[300px] h-[50px] p-2">
                 <input type="password" name="password" placeholder="Password" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
+                {% comment %} <input type="image"/> {% endcomment %}
                 <div class="flex flex-row mx-auto items-center justify-center space-x-2">
                     <input type="submit" name="submit" value="Login" class="outline-none rounded-md w-auto h-auto p-1 bg-green-500 hover:bg-green-600 text-white font-bold">
                 <a href="register" class="text-sm font-serif font-extralight hover:underline hover:text-blue-500">Sign Up?</a>
