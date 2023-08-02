@@ -28,7 +28,7 @@
                 <p class="m-2 mx-auto items-center justfy-center flex text-red-400">{{ error }}</p>
             {% endif %}
             <!-- Login form -->
-            <form class="flex flex-col justify-center items-center space-y-2" method="post" action={% url 'login'%}>
+            <form class="flex flex-col justify-center items-center space-y-2" method="post" action="{% url 'login'%}">
                 {% csrf_token %}
                 <input type="text" name="username" placeholder="Username" class="outline-none rounded-md w-[300px] h-[50px] p-2">
                 <input type="password" name="password" placeholder="Password" class=" outline-none rounded-md w-[300px] h-[50px] p-2">
