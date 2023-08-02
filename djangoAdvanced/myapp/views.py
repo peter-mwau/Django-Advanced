@@ -11,6 +11,9 @@ from myapp.models import CustomUser
 def Home(request):
     return render(request, "homepage.html")
 
+def About(request):
+    return render(request, "about.html")
+
 def user_login(request):
     print("Reached the user_login view.")
     if request.method == "POST":
