@@ -14,6 +14,9 @@ def Home(request):
 def About(request):
     return render(request, "about.html")
 
+def Services(request):
+    return render(request, "services.html")
+
 def user_login(request):
     print("Reached the user_login view.")
     if request.method == "POST":

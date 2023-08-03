@@ -1,0 +1,44 @@
+{% load static tailwind_tags %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Services</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-100 h-[100vh]">
+    {% include 'navbar.html' %}
+    <div class="w-[60%] m-10 p-2 bg-gray-100 rounded-lg">
+        <h2 class="text-2xl font-sans font-semibold mx-auto flex items-center justify-center">Our Services</h2>
+    </div>
+
+    <div class="flex mx-auto items-center justify-center m-2 p-2 flex-wrap w-[60%]">
+        <div class="bg-gray-200 rounded-lg shadow-lg p-4 m-2">
+            <h3 class="text-lg font-semibold mb-2">Web Development</h3>
+            <p>Our team excels in building modern and responsive websites using the latest web technologies.</p>
+        </div>
+        <div class="bg-gray-200 rounded-lg shadow-lg p-4 m-2">
+            <h3 class="text-lg font-semibold mb-2">Blockchain</h3>
+            <p>Explore the potential of blockchain technology with our expertise in creating decentralized applications.</p>
+        </div>
+        <div class="bg-gray-200 rounded-lg shadow-lg p-4 m-2">
+            <h3 class="text-lg font-semibold mb-2">Python</h3>
+            <p>Leverage the power of Python programming language for various applications and projects.</p>
+        </div>
+        <div class="bg-gray-200 rounded-lg shadow-lg p-4 m-2">
+            <h3 class="text-lg font-semibold mb-2">Django</h3>
+            <p>Build robust and scalable web applications using the Django web framework.</p>
+        </div>
+        <div class="bg-gray-200 rounded-lg shadow-lg p-4 m-2">
+            <h3 class="text-lg font-semibold mb-2">DevOps</h3>
+            <p>Implement and optimize continuous integration and continuous deployment pipelines.</p>
+        </div>
+        <div class="bg-gray-200 rounded-lg shadow-lg p-4 m-2">
+            <h3 class="text-lg font-semibold mb-2">DevOps</h3>
+            <p>Implement and optimize continuous integration and continuous deployment pipelines.</p>
+        </div>
+        <!-- Add more services here -->
+    </div>
+</body>
+{% endblock %}
+</html>

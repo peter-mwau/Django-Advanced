@@ -7,21 +7,7 @@
     {% tailwind_css %}
 </head>
 <body class="bg-gray-200 h-[100vh]">
-    <div id='navbar' class="shadow-md h-[50px] p-2 mx-auto w-full flex flex-row justify-between bg-gradient-to-r from-green-300 to-transparent">
-        <div class="opacity-0">
-            <img src="{% static '/logo.png' %}" class="h-[50px] w-[50px]">
-        </div>
-        <div>
-            <h2 class="items-center justify-center flex mx-auto font-serif font-extrabold text-2xl">Welcome to the Theatre of Dreams</h2>
-        </div>
-        <div class="flex flex-row justify-end my-auto items-center space-x-3 text-xl font-serif font-extrabold">
-            <a href={% url 'home' %} class="hover:underline-offset-1 hover:text-green-500">Home</a>
-            <a href={% url 'about' %} class="hover:underline-offset-1 hover:text-green-500">About</a>
-            <a href="#" class="hover:underline-offset-1 hover:text-green-500">Services</a>
-            <a href="#" class="hover:underline-offset-1 hover:text-green-500">Contact</a>
-            <a href="{% url 'logout' %}" class="hover:underline-offset-1 hover:text-red-500">Logout</a>
-        </div>
-    </div>
+     {% include 'navbar.html' %}
     <p class="text-center m-2 p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
 </body>
 </html>
