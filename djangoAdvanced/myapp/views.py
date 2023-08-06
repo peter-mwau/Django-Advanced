@@ -11,6 +11,9 @@ from myapp.models import CustomUser
 def Home(request):
     return render(request, "homepage.html")
 
+def Contact(request):
+    return render(request, "contact.html")
+
 def About(request):
     return render(request, "about.html")
 
